@@ -73,7 +73,13 @@ export default async function handler(req, res) {
     bot.processUpdate(req.body);
     return res.status(200).end();
   }
-  res.status(200).send("BOT OK");
+
+  // GET / ping manual
+  return res.status(200).json({
+    status: "ok",
+    bot: true,
+    time: new Date().toISOString()
+  });
 }
 
 // ===== /login =====
